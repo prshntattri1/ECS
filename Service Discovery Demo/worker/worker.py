@@ -1,7 +1,4 @@
 from flask import Flask
-import socket
-import boto3
-from boto3.dynamodb.conditions import Key, Attr
 app = Flask(__name__)
 
 @app.route("/ping")
