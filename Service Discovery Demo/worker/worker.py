@@ -8,19 +8,11 @@ app = Flask(__name__)
 def ping():
     return "", 200
 
-@app.route("/lp/<find>")
-def do_work(find):
-    print("working to find-"+find)
+@app.route("/")
+def do_work():
     try:
-        dynamodb = boto3.resource('dynamodb',region_name='us-east-1')
-        table = dynamodb.Table('demoTable')
-        print(table.creation_date_time)
-        response = table.query(
-            KeyConditionExpression=Key('myPrimaryKey').eq(int(find))
-        )
-        items = response['Items']
-        print("Found IT!-"+str(items[0]['LP']))
-        return str(items[0]['LP'])
+        #your code here
+        return "I'm Working fine!"
     except Exception as e:
         print("Something Terrible Happened - "+str(e))
         return "I'm a worker and I Failed"
